@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Currency Converter</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="currency_converter">Currency Converter</string>
+    <string name="integer_egestas_erat_ut_porta_hendrerit_sed_maurus_pharetra_viverra_rutrum_sed_nibh">integer egestas erat ut porta hendrerit. Sed maurus pharetra viverra, rutrum sed nibh</string>
+    <string name="enter_your_amount">Enter your Amount</string>
+    <string name="select_country">Select Country</string>
+    <string name="to">To</string>
+    <string name="from">From</string>
+    <string name="convert">Convert</string>
+
+
+    <string-array name="countries_array">
+        <item>Afghanistan</item>
+        <item>Albania</item>
+        <item>Algeria</item>
+        <item>Andorra</item>
+        <item>Angola</item>
+        <item>Zimbabwe</item>
+    </string-array>
+</resources>
