@@ -12,11 +12,22 @@
 
 
     <string-array name="countries_array">
-        <item>Afghanistan</item>
-        <item>Albania</item>
-        <item>Algeria</item>
-        <item>Andorra</item>
-        <item>Angola</item>
-        <item>Zimbabwe</item>
+        <item>AED</item>
+        <item>AFN</item>
+        <item>ALL</item>
+        <item>AMD</item>
+        <item>USD</item>
+        <item>AUD</item>
+        <item>BRL</item>
+        <item>CAD</item>
+        <item>CNY</item>
+        <item>DKK</item>
+        <item>EGP</item>
+        <item>GBP</item>
+        <item>AED</item>
+        <item>KWD</item>
+        <item>MAD</item>
+        <item>SAR</item>
+        <item>SDG</item>
     </string-array>
 </resources>
