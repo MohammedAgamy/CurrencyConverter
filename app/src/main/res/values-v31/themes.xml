@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.MainActivity" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/blue200</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/launcher_screen</item>
+        <item name="postSplashScreenTheme">@style/Theme.CurrencyConverter</item>
+        <item name="windowSplashScreenAnimationDuration">2000</item>
+        <item name="android:statusBarColor">@color/blue200</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+
+    </style>
+</resources>

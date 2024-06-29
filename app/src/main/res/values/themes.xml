@@ -1,9 +1,28 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.CurrencyConverter" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <item name="colorPrimary">@color/blue50</item>
+        <item name="colorPrimaryDark">@color/blue200</item>
+        <item name="colorAccent">@color/blue300</item>
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item> <!-- <for making status bar content color dark> -->
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item><!--<for making Navigation bar content color dark>-->
+        <item name="android:navigationBarColor">@color/white</item>
     </style>
 
     <style name="Theme.CurrencyConverter" parent="Base.Theme.CurrencyConverter" />
+
+    <style name="MainActivityTheme" parent="Theme.CurrencyConverter">
+    <item name="android:windowBackground">@drawable/launcher_screen</item>
+    <!-- <System ui configuration> -->
+    <item name="android:statusBarColor">@color/blue300</item>
+    <item name="android:navigationBarColor">@color/blue200</item>
+    <item name="android:windowLightStatusBar">true</item><!-- <for making status bar content color dark> -->
+    <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">false</item>
+
+    </style>>
 </resources>
