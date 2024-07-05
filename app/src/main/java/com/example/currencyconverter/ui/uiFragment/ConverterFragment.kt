@@ -9,11 +9,15 @@ import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.currencyconverter.R
 import com.example.currencyconverter.data.Client
 import com.example.currencyconverter.model.ExchangeRateResponse
+import com.example.currencyconverter.model.ExchangeRatesViewModel
+import com.example.currencyconverter.repo.ExchangeRatesRepository
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.android.material.textfield.TextInputEditText
@@ -32,6 +36,14 @@ class ConverterFragment : Fragment() {
     private var fromCurrency: String = "null"
     private var toCurrency: String = "null"
     private var amount = 2.0
+
+
+    private val repository = ExchangeRatesRepository()
+    private val viewModel: ExchangeRatesViewModel by viewModels {
+        ExchangeRatesViewModel.ExchangeRatesViewModelFactory(
+            repository
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,7 +75,28 @@ class ConverterFragment : Fragment() {
         getTo()
 
         concertBtn.setOnClickListener {
-            callApi()
+            // callApi()
+
+            // Fetch exchange rates for a specific currency
+            viewModel.fetchExchangeRates(fromCurrency, toCurrency, amount)
+
+            // Observe the exchange rates data
+            viewModel.exchangeRates.observe(requireActivity(), Observer { rates ->
+                // Update the UI with the fetched exchange rates
+                val amount = rates.conversion_result
+                amountView.text = amount.toString()
+
+            })
+
+            // Observe the error message
+            viewModel.errorMessage.observe(requireActivity(), Observer { message ->
+                // Show error message
+                Log.d(
+                    "MainActivity",
+                    "Conversion Result: $message"
+                )
+            })
+
 
         }
         allCurrencyBtn.setOnClickListener {
@@ -71,42 +104,41 @@ class ConverterFragment : Fragment() {
         }
 
 
-
     }
 
-    private fun callApi() {
-        val amountText = amountInput.text.toString()
-        amount = amountText.toDouble()
-        Client.RetrofitInstance.api.getExchangeRate(fromCurrency, toCurrency, amount)
-            .enqueue(object : Callback<ExchangeRateResponse> {
-                override fun onResponse(
-                    call: Call<ExchangeRateResponse>,
-                    response: retrofit2.Response<ExchangeRateResponse>
-                ) {
-                    if (response.isSuccessful) {
-                        val exchangeRateResponse = response.body()
-                        if (exchangeRateResponse != null) {
-                            Log.d(
-                                "MainActivity",
-                                "Conversion Result: ${exchangeRateResponse.conversion_result}"
-                            )
+    /* private fun callApi() {
+         val amountText = amountInput.text.toString()
+         amount = amountText.toDouble()
+         Client.RetrofitInstance.api.getExchangeRate(fromCurrency, toCurrency, amount)
+             .enqueue(object : Callback<ExchangeRateResponse> {
+                 override fun onResponse(
+                     call: Call<ExchangeRateResponse>,
+                     response: retrofit2.Response<ExchangeRateResponse>
+                 ) {
+                     if (response.isSuccessful) {
+                         val exchangeRateResponse = response.body()
+                         if (exchangeRateResponse != null) {
+                             Log.d(
+                                 "MainActivity",
+                                 "Conversion Result: ${exchangeRateResponse.conversion_result}"
+                             )
 
-                            val amount = exchangeRateResponse.conversion_result
-                            amountView.text = amount.toString()
-                        } else {
-                            Log.e(
-                                "MainActivity",
-                                "Request failed with error: ${response.errorBody()?.string()}"
-                            )
-                        }
-                    }
-                }
+                             val amount = exchangeRateResponse.conversion_result
+                             amountView.text = amount.toString()
+                         } else {
+                             Log.e(
+                                 "MainActivity",
+                                 "Request failed with error: ${response.errorBody()?.string()}"
+                             )
+                         }
+                     }
+                 }
 
-                override fun onFailure(call: Call<ExchangeRateResponse>, t: Throwable) {
-                    Log.e("MainActivity", "Network request failed: ${t.message}")
-                }
-            })
-    }
+                 override fun onFailure(call: Call<ExchangeRateResponse>, t: Throwable) {
+                     Log.e("MainActivity", "Network request failed: ${t.message}")
+                 }
+             })
+     }*/
 
     fun getFrom() {
         // Get the string array resource

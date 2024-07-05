@@ -58,4 +58,11 @@ dependencies {
     //Splash screen Android 12
     implementation("androidx.core:core-splashscreen:1.0.0")
 
+    // Coroutines
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
+
+    // ViewModel
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
+
 }

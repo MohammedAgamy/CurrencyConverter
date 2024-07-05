@@ -8,11 +8,11 @@ import retrofit2.http.Path
 
 interface ExchangeRateApi {
     @GET("pair/{from}/{to}/{amount}")
-    fun getExchangeRate(
+    suspend fun getExchangeRate(
         @Path("from") fromCurrency: String,
         @Path("to") toCurrency: String,
         @Path("amount") amount: Double
-    ): Call<ExchangeRateResponse>
+    ):ExchangeRateResponse
 
 
 
