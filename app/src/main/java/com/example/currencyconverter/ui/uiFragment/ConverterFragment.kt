@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.currencyconverter.R
 import com.example.currencyconverter.data.Client
 import com.example.currencyconverter.model.ExchangeRateResponse
@@ -24,6 +26,7 @@ class ConverterFragment : Fragment() {
     private lateinit var countrySpinnerTo: MaterialAutoCompleteTextView
     private lateinit var amountView: TextView
     private lateinit var concertBtn: MaterialButton
+    private lateinit var allCurrencyBtn: MaterialButton
     private lateinit var amountInput: TextInputEditText
 
     private var fromCurrency: String = "null"
@@ -51,6 +54,7 @@ class ConverterFragment : Fragment() {
 
         amountView = view.findViewById(R.id.finalAmount)
         concertBtn = view.findViewById(R.id.materialButton)
+        allCurrencyBtn = view.findViewById(R.id.showAllCurancy)
         amountInput = view.findViewById(R.id.amount)
 
 
@@ -62,6 +66,11 @@ class ConverterFragment : Fragment() {
             callApi()
 
         }
+        allCurrencyBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_converterFragment_to_allCurrencyFragment)
+        }
+
+
 
     }
 

@@ -37,6 +37,7 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/textInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -55,8 +56,6 @@
             android:inputType="numberDecimal"
             android:textColor="@color/black"
             android:maxLines="1" />
-
-
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -87,7 +86,8 @@
             android:id="@+id/countrySpinnerfrom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="10dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
             android:textColor="@color/black"
             android:layout_marginHorizontal="16dp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -118,7 +118,8 @@
         <com.google.android.material.textfield.MaterialAutoCompleteTextView
             android:id="@+id/countrySpinnerto"
             android:layout_width="match_parent"
-            android:paddingStart="10dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
             android:textColor="@color/black"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp" />
@@ -143,14 +144,29 @@
         android:id="@+id/materialButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/convert"
-        app:cornerRadius="8dp"
-        android:textSize="28sp"
         android:layout_marginHorizontal="20dp"
-        app:iconPadding="8dp"
+        android:layout_marginTop="28dp"
         android:backgroundTint="@color/blue200"
-        android:layout_marginTop="32dp"
+        android:text="@string/convert"
+        android:textSize="28sp"
+        app:cornerRadius="8dp"
+        app:iconPadding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/finalAmount" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/showAllCurancy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:backgroundTint="@color/blue200"
+        android:text="@string/show_all_currency"
+        android:textSize="28sp"
+        app:cornerRadius="8dp"
+        app:iconPadding="8dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

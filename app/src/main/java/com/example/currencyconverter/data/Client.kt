@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class Client {
     object RetrofitInstance {
-        private const val BASE_URL = "https://v6.exchangerate-api.com/v6/"
+        private const val BASE_URL = "https://v6.exchangerate-api.com/v6/294eca2e4a2293cd054edf66/"
 
         val api: ExchangeRateApi by lazy {
             Retrofit.Builder()

@@ -2,7 +2,7 @@
 <resources>
 
     <style name="Theme.MainActivity" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">@color/blue200</item>
+        <item name="windowSplashScreenBackground">@color/blue50</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/launcher_screen</item>
         <item name="postSplashScreenTheme">@style/Theme.CurrencyConverter</item>
         <item name="windowSplashScreenAnimationDuration">2000</item>
